@@ -17,9 +17,12 @@ var _global = typeof window === 'object' && window.window === window
   : this
 
 function stripNameOfInvalidChars(name) {
-  var forbiddenChars = ['<', '>', ':', '"', '/', '\\', '|', '?', '*'];
-  for(var i = 0;i < forbiddenChars.length; i++) {
-    name = name.replace(forbiddenChars[i], '_');
+  var isEdge17_17134 = /Edge\/17.17134/.test(navigator.userAgent)
+  if(isEdge17_17134){
+    var forbiddenChars = ['<', '>', ':', '"', '/', '\\', '|', '?', '*'];
+    for(var i = 0;i < forbiddenChars.length; i++) {
+      name = name.replace(forbiddenChars[i], '_');
+    }
   }
   return name;
 }
